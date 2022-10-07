@@ -4,11 +4,11 @@
 
 create new folder with anyname;
 
-inside a folder run:__
-`git clone https://github.com/sabrina34352/backend_study.git`__
+inside a folder run:<br />
+`git clone https://github.com/sabrina34352/backend_study.git`<br />
 `npm i`
 
-to run a program:__
+to run a program:<br />
 `node index.js`
 
 give input in the console, example: 1,2,3,4,5
