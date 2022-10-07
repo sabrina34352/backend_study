@@ -6,9 +6,9 @@ create new folder with anyname;
 
 inside a folder run:<br />
 `git clone https://github.com/sabrina34352/backend_study.git`<br />
-`npm i`
+
+give input in the console, example: 1,2,3,4,5<br/>
 
 to run a program:<br />
-`node index.js`
+`node index.js <array of inputs>`
 
-give input in the console, example: 1,2,3,4,5
