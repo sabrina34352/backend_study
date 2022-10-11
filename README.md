@@ -9,6 +9,7 @@ inside a folder run:<br />
 
 give input in the console, example: 1,2,3,4,5<br/>
 
-to run a program:<br />
-`node index.js <array of inputs>`
-
+to run program Number 1:<br />
+`node src/index.js <array of inputs>`
+to run program Number 2:<br />
+`node src/quiz/index.js <array of inputs>`
