@@ -1,9 +1,3 @@
-/* TODO: 2. Сделать программу для квиз-опроса на 10 вопросов.
- После каждого вопроса программа должна предлагать продолжить 
- игру или завершить. При неверном ответе
-  давать еще одну попытку. При завершении
-   показывать количество верных и неверных ответов.
-*/
 const readline = require('readline').createInterface({
   input: process.stdin,
   output: process.stdout,
@@ -11,53 +5,53 @@ const readline = require('readline').createInterface({
 
 const questions = [
   {
-    question: 'a:',
-    answer: 'a',
+    question: 'What is the Capital of Italy:',
+    answer: 'Rome',
     correct: false,
   },
   {
-    question: 'b:',
-    answer: 'b',
+    question: 'When was author Pushkin born(month, date):',
+    answer: 'June 6',
     correct: false,
   },
   {
-    question: 'c:',
-    answer: 'c',
+    question: 'Last President of USSR(name, surname):',
+    answer: 'Mikhail Gorbachev',
     correct: false,
   },
   {
-    question: 'd:',
-    answer: 'd',
+    question: 'Who was 14th president of USA:',
+    answer: 'Franklin Pierce',
     correct: false,
   },
   {
-    question: 'e:',
-    answer: 'e',
+    question: 'Who is the author of Crime and Punishment:',
+    answer: 'Fyodor Dostoevsky',
     correct: false,
   },
   {
-    question: 'f:',
-    answer: 'f',
+    question: 'What is 2+2:',
+    answer: '4',
     correct: false,
   },
   {
-    question: 'g:',
-    answer: 'g',
+    question: 'What is the first color of the flag Columbia:',
+    answer: 'yellow',
     correct: false,
   },
   {
-    question: 'h:',
-    answer: 'h',
+    question: 'The county which has the only flag which is not square:',
+    answer: 'Nepal',
     correct: false,
   },
   {
-    question: 'j:',
-    answer: 'j',
+    question: "Maximum age of Leonardo Decaprio's girlfriends: ",
+    answer: '25',
     correct: false,
   },
   {
-    question: 'k:',
-    answer: 'k',
+    question: 'Who won in trial of Jonny Depp and Amber Heard:',
+    answer: 'Jonny Depp',
     correct: false,
   },
 ];
@@ -67,7 +61,7 @@ const questions = [
     let answer = await new Promise((resolve) =>
       readline.question(q.question, resolve)
     );
-    if (answer === q.answer) {
+    if (answer.toLowerCase() === q.answer.toLowerCase()) {
       q.correct = true;
     }
   }
