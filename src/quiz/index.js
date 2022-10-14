@@ -8,74 +8,85 @@ const readline = require('readline').createInterface({
 const questions = [
   {
     question: 'What is the Capital of Italy:',
-    answer: 'Rome',
+    answers: ['rome'],
     correct: false,
   },
   {
-    question: 'When was author Pushkin born(month, date):',
-    answer: 'June 6',
+    question: 'When was author Pushkin born(month, day):',
+    answers: ['june 6', '10.6', '6.10', '6 june'],
     correct: false,
   },
   {
-    question: 'Last President of USSR(name, surname):',
-    answer: 'Mikhail Gorbachev',
+    question: 'Last President of USSR:',
+    answers: [
+      'mikhail gorbachev',
+      'mikhail sergeyevich gorbachev',
+      'gorbachev',
+      'mikhail',
+      'sergeyevich',
+      'mikhaiil sergeyevich',
+    ],
     correct: false,
   },
   {
     question: 'Who was 14th president of USA:',
-    answer: 'Franklin Pierce',
+    answers: ['franklin pierce', 'pierce', 'franklin', 'pierce franklin'],
     correct: false,
   },
   {
     question: 'Who is the author of Crime and Punishment:',
-    answer: 'Fyodor Dostoevsky',
+    answers: ['fyodor dostoevsky', 'dostoevsky', 'fyodor', 'dostoevsky fyodor'],
     correct: false,
   },
   {
     question: 'What is 2+2:',
-    answer: '4',
+    answers: ['4', 'four'],
     correct: false,
   },
   {
     question: 'What is the first color of the flag Columbia:',
-    answer: 'yellow',
+    answers: 'yellow',
     correct: false,
   },
   {
     question: 'The county which has the only flag which is not square:',
-    answer: 'Nepal',
+    answers: 'nepal',
     correct: false,
   },
   {
     question: "Maximum age of Leonardo Decaprio's girlfriends: ",
-    answer: '25',
+    answers: ['25', 'twenty five'],
     correct: false,
   },
   {
     question: 'Who won in trial of Jonny Depp and Amber Heard:',
-    answer: 'Jonny Depp',
+    answers: ['jonny depp', 'depp', 'jonny', 'depp jonny'],
     correct: false,
   },
 ];
 
 (async () => {
   for (let q of questions) {
+    let abort = false;
     let incorrectAnswer = 0;
     console.log('Press q to finish the quiz');
+
     while (incorrectAnswer < 2) {
       let answer = await new Promise((resolve) =>
         readline.question(q.question, resolve)
       );
-      if (answer.toLowerCase() === q.answer.toLowerCase()) {
+      if (q.answers.includes(answer.toLowerCase())) {
         q.correct = true;
         break;
       } else if (answer.toLowerCase() === 'q') {
-        exit();
+        abort = true;
+        break;
       } else {
         incorrectAnswer < 1 && console.log('try again');
         incorrectAnswer++;
       }
     }
+    if (abort) break;
   }
   readline.close();
 
