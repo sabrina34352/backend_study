@@ -60,14 +60,21 @@ const questions = [
 
 (async () => {
   for (let q of questions) {
+    let incorrectAnswer = 0;
     console.log('Press q to finish the quiz');
-    let answer = await new Promise((resolve) =>
-      readline.question(q.question, resolve)
-    );
-    if (answer.toLowerCase() === q.answer.toLowerCase()) {
-      q.correct = true;
-    } else if (answer.toLowerCase() === 'q') {
-      exit();
+    while (incorrectAnswer < 2) {
+      let answer = await new Promise((resolve) =>
+        readline.question(q.question, resolve)
+      );
+      if (answer.toLowerCase() === q.answer.toLowerCase()) {
+        q.correct = true;
+        break;
+      } else if (answer.toLowerCase() === 'q') {
+        exit();
+      } else {
+        incorrectAnswer < 1 && console.log('try again');
+        incorrectAnswer++;
+      }
     }
   }
   readline.close();
