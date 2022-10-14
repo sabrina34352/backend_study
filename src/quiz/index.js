@@ -75,10 +75,10 @@ const questions = [
       let answer = await new Promise((resolve) =>
         readline.question(q.question, resolve)
       );
-      if (q.answers.includes(answer.toLowerCase())) {
+      if (q.answers.includes(answer.toLowerCase().replace(/\s/g, ''))) {
         q.correct = true;
         break;
-      } else if (answer.toLowerCase() === 'q') {
+      } else if (answer.toLowerCase().replace(/\s/g, '') === 'q') {
         abort = true;
         break;
       } else {
