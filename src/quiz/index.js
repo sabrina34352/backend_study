@@ -5,6 +5,7 @@ const readline = require('readline').createInterface({
 const fs = require('fs').promises;
 let correctAnswers = 0;
 let totalQuestions = 0;
+let unansweredQuestions = 0;
 
 const writeDownAnswers = (question, answer, extra) => {
   fs.appendFile(
@@ -38,6 +39,7 @@ const writeDownAnswers = (question, answer, extra) => {
           correctAnswers++;
           break;
         } else if (answer.toLowerCase().trim() === 'q') {
+          unansweredQuestions = totalQuestions - index;
           abort = true;
           break;
         } else {
@@ -52,8 +54,8 @@ const writeDownAnswers = (question, answer, extra) => {
     readline.close();
 
     const score = `\nYou got ${correctAnswers} correct answers \nYou got ${
-      totalQuestions - correctAnswers
-    } wrong or not answered`;
+      totalQuestions - correctAnswers - unansweredQuestions
+    } wrong \nYou got ${unansweredQuestions} unanswered questions`;
 
     fs.appendFile('src/quiz/questions/userAnswers.txt', score, (err) => {
       if (err) throw err;
