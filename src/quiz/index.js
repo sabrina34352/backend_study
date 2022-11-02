@@ -40,6 +40,7 @@ const writeDownAnswers = (question, answer, extra) => {
           break;
         } else if (answer.toLowerCase().trim() === 'q') {
           unansweredQuestions = totalQuestions - index;
+          writeDownAnswers(question, 'exited', 'unanswered');
           abort = true;
           break;
         } else {
