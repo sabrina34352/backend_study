@@ -58,9 +58,13 @@ const writeDownAnswers = (question, answer, extra) => {
       totalQuestions - correctAnswers - unansweredQuestions
     } wrong \nYou got ${unansweredQuestions} unanswered questions`;
 
-    fs.appendFile('src/quiz/questions/userAnswers.txt', score, (err) => {
-      if (err) throw err;
-    });
+    fs.appendFile(
+      'src/quiz/questions/userAnswers.txt',
+      `${score} \n\nfinished date: ${new Date()} \n\n `,
+      (err) => {
+        if (err) throw err;
+      }
+    );
 
     console.log(score);
   } catch (error) {
