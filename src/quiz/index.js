@@ -17,6 +17,13 @@ const writeDownAnswers = (question, answer, extra) => {
   );
 };
 (async () => {
+  fs.appendFile(
+    'src/quiz/questions/userAnswers.txt',
+    `finished date: ${new Date()} \n\n`,
+    (err) => {
+      if (err) throw err;
+    }
+  );
   try {
     const questionsFile = await fs.readFile('src/quiz/questions/questions.txt');
     const answersFile = await fs.readFile('src/quiz/questions/answers.txt');
@@ -56,15 +63,11 @@ const writeDownAnswers = (question, answer, extra) => {
 
     const score = `\nYou got ${correctAnswers} correct answers \nYou got ${
       totalQuestions - correctAnswers - unansweredQuestions
-    } wrong \nYou got ${unansweredQuestions} unanswered questions`;
+    } wrong \nYou got ${unansweredQuestions} unanswered questions\n\n`;
 
-    fs.appendFile(
-      'src/quiz/questions/userAnswers.txt',
-      `${score} \n\nfinished date: ${new Date()} \n\n `,
-      (err) => {
-        if (err) throw err;
-      }
-    );
+    fs.appendFile('src/quiz/questions/userAnswers.txt', score, (err) => {
+      if (err) throw err;
+    });
 
     console.log(score);
   } catch (error) {
