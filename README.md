@@ -1,4 +1,4 @@
-# A program to get input from user as an array of numbers and return a sum of all numbers
+# A collection of the programs for different task
 
 ## to start:
 
@@ -9,6 +9,7 @@ inside a folder run:<br />
 
 give input in the console, example: 1,2,3,4,5<br/>
 
-to run a program:<br />
-`node index.js <array of inputs>`
-
+to run program Number 1:<br />
+`node src/index.js <array of inputs>` <br />
+to run program Number 2:<br />
+`node src/quiz/index.js`
