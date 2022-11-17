@@ -1,0 +1,24 @@
+doctype html
+html
+  head
+    style
+      include ../styles/index.css
+  .main
+    .navBar
+      include ../components/navbar.pug
+    .View
+      h1.Banner= title
+        div.Title
+          h3= message
+    .Products 
+      each product in products
+        form(method="POST" action='/' )
+          .Product
+            .imageHolder
+              img.Images(src=product.image)
+            input(type="hidden" name="id" value=product.id)
+            h3= product.name
+            h5= product.price
+            button(type=submit) Добавить в корзину
+
+
